@@ -22,5 +22,6 @@ public class InvoiceItem {
     private BigDecimal totalPrice;
 
     @ManyToOne
+    @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 }

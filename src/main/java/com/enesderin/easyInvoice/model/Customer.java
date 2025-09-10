@@ -26,8 +26,9 @@ public class Customer {
     private String email;
 
     @ManyToOne
+    @JoinColumn(name = "company_id")
     private Company company;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Invoice> invoices;
 }

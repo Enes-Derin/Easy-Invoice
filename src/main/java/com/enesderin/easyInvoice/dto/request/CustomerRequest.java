@@ -1,22 +1,22 @@
 package com.enesderin.easyInvoice.dto.request;
 
-import com.enesderin.easyInvoice.model.Company;
-import com.enesderin.easyInvoice.model.Invoice;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 public class CustomerRequest {
 
+    @NotNull
     private String taxNumber; // vergi numarası
+    @NotNull
     private String name;
 
     private String address;
+
     private String phone;
+
     private String email;
-    private Company company;
+    @NotNull
+    private Long companyId;
 }

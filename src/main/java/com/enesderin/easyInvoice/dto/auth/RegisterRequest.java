@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class RegisterRequest {
-    @NotNull
+
     private Long companyId;
     @NotNull
     private String email;

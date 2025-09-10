@@ -27,9 +27,11 @@ public class Invoice {
 
 
     @ManyToOne
+    @JoinColumn(name = "cusomer_id")
     private Customer customer;
 
     @ManyToOne
+    @JoinColumn(name = "company_id")
     private Company company;
 
     @OneToMany

@@ -34,12 +34,12 @@ public class SecurityConfig {
         http.csrf().disable();
         http.authorizeHttpRequests(request -> {
             request.requestMatchers(REGISTER,LOGIN,REFRESH_TOKEN).permitAll();
-            request.anyRequest().authenticated();
+            request.requestMatchers("/api/**").hasAnyRole("ADMIN","MANAGER");
         });
+        http.exceptionHandling().authenticationEntryPoint(authEntryPoint).and();
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.authenticationProvider(authenticationProvider);
         http.addFilterBefore(jwtAuthenticaitonFilter, UsernamePasswordAuthenticationFilter.class);
-        http.exceptionHandling().authenticationEntryPoint(authEntryPoint).and();
         return http.build();
     }
 }

@@ -29,6 +29,7 @@ public class User implements UserDetails {
     private Role role;
 
     @ManyToOne
+    @JoinColumn(name = "company_id")
     private Company company;
 
 
