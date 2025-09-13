@@ -4,10 +4,13 @@ import com.enesderin.easyInvoice.dto.request.CompanyRequest;
 import com.enesderin.easyInvoice.dto.response.CompanyResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface CompanyService {
-    public String createCompany(CompanyRequest companyRequestDto);
-    public String updateCompany(Long id, CompanyRequest companyRequestDto);
-    public CompanyResponse getCompany(Long id);
-    public String deleteCompany(Long id);
+    CompanyResponse createCompany(CompanyRequest companyRequestDto);
+    CompanyResponse updateCompany(Long id, CompanyRequest companyRequestDto);
+    CompanyResponse getCompany(Long id);
+    List<CompanyResponse> getAllCompany();
+    String deleteCompany(Long id);
 }

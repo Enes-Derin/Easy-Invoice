@@ -2,6 +2,8 @@ package com.enesderin.easyInvoice.dto.response;
 
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 public class CompanyResponse {
@@ -11,6 +13,8 @@ public class CompanyResponse {
     private String address;
     private String phone;
     private String email;
-    private String logoUrl;
-    private Long userId;
+    private List<UserResponse> users;
+    private List<CustomerResponse> customers;
+    private List<InvoiceResponse> invoices;
+
 }

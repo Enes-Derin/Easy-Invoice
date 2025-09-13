@@ -23,7 +23,6 @@ public class Company {
     private String address;
     private String phone;
     private String email;
-    private String logoUrl;
 
     @OneToMany
     private List<User> user;

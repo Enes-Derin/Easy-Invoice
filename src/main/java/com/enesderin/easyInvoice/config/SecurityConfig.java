@@ -6,6 +6,7 @@ import com.enesderin.easyInvoice.security.JwtAuthenticaitonFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,7 +35,9 @@ public class SecurityConfig {
         http.csrf().disable();
         http.authorizeHttpRequests(request -> {
             request.requestMatchers(REGISTER,LOGIN,REFRESH_TOKEN).permitAll();
+            request.requestMatchers("/api/company/all").hasRole("MANAGER");
             request.requestMatchers("/api/**").hasAnyRole("ADMIN","MANAGER");
+            request.anyRequest().authenticated();
         });
         http.exceptionHandling().authenticationEntryPoint(authEntryPoint).and();
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
