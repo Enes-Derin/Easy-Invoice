@@ -10,6 +10,4 @@ public class InvoiceItemRequest {
     private String description;
     private int quantity;
     private BigDecimal unitPrice;
-    private BigDecimal totalPrice;
-    private Long invoiceId;
 }

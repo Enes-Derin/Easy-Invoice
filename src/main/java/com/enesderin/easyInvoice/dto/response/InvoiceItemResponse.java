@@ -17,5 +17,4 @@ public class InvoiceItemResponse {
     private int quantity;
     private BigDecimal unitPrice;
     private BigDecimal totalPrice;
-    private Long invoiceId;
 }

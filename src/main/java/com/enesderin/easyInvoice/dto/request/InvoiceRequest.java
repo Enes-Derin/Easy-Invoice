@@ -16,12 +16,11 @@ public class InvoiceRequest {
     private String invoiceNumber;
     private LocalDate issueDate;
     private LocalDate dueDate;
-    private BigDecimal totalAmount;
     private InvoiceStatus status;
 
     private Long customerId;
 
-    private Company company;
+    private Long companyId;
 
-    private List<InvoiceItem> invoiceItems;
+    private List<InvoiceItemRequest> invoiceItems;
 }

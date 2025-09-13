@@ -22,5 +22,5 @@ public class InvoiceResponse {
     private InvoiceStatus status;
     private Long customerId;
     private Long companyId;
-    private List<InvoiceItem> invoiceItems;
+    private List<InvoiceItemResponse> invoiceItems;
 }
