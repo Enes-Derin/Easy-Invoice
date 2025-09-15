@@ -5,6 +5,7 @@ import com.enesderin.easyInvoice.controller.RootEntity;
 import com.enesderin.easyInvoice.dto.request.InvoiceRequest;
 import com.enesderin.easyInvoice.dto.response.InvoiceResponse;
 import com.enesderin.easyInvoice.service.InvoiceService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,13 +32,13 @@ public class InvoiceControllerImpl implements InvoiceController {
 
     @PostMapping
     @Override
-    public RootEntity<InvoiceResponse> createInvoice(@RequestBody InvoiceRequest invoiceRequest) {
+    public RootEntity<InvoiceResponse> createInvoice(@Valid @RequestBody InvoiceRequest invoiceRequest) {
         return RootEntity.ok(this.invoiceService.createInvoice(invoiceRequest));
     }
 
     @PutMapping("/update/{id}")
     @Override
-    public RootEntity<InvoiceResponse> updateInvoice(@PathVariable Long id, @RequestBody InvoiceRequest invoiceRequest) {
+    public RootEntity<InvoiceResponse> updateInvoice(@PathVariable Long id,@Valid @RequestBody InvoiceRequest invoiceRequest) {
         return RootEntity.ok(this.invoiceService.updateInvoice(id, invoiceRequest));
     }
 
